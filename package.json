@@ -1,0 +1,51 @@
+{
+  "name": "mdnb",
+  "displayName": "mdnb Notebook",
+  "description": "Custom notebook type for mdnb files without Jupyter dependencies.",
+  "version": "1.0.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Notebooks"
+  ],
+  "activationEvents": [
+    "onNotebook:mdnb",
+    "onCommand:mdnb.runLanguageAction"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "notebooks": [
+      {
+        "type": "mdnb",
+        "displayName": "MDNB Notebook",
+        "selector": [
+          {
+            "filenamePattern": "*.mdnb"
+          }
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "mdnb.runLanguageAction",
+        "title": "MDNB: Run Language Action"
+      }
+    ],
+    "configuration": {
+      "title": "mdnb",
+      "properties": {
+        "mdnb.languageActions": {
+          "type": "object",
+          "default": {
+            "javascript": "Run JavaScript action",
+            "python": "Run Python action",
+            "sql": "Run SQL action"
+          },
+          "description": "Map of code block languages to custom action labels shown in outputs and cell action button."
+        }
+      }
+    }
+  }
+}
