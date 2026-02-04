@@ -27,6 +27,18 @@
         ]
       }
     ],
+    "languages": [
+      {
+        "id": "mdnb",
+        "aliases": [
+          "MDNB",
+          "mdnb"
+        ],
+        "extensions": [
+          ".mdnb"
+        ]
+      }
+    ],
     "commands": [
       {
         "command": "mdnb.runLanguageAction",

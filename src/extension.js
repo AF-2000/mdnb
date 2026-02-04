@@ -142,6 +142,20 @@ function activate(context) {
     })
   );
 
+  context.subscriptions.push(
+    vscode.workspace.onDidOpenNotebookDocument((notebook) => {
+      if (notebook.notebookType === NOTEBOOK_TYPE) {
+        controller.updateNotebookAffinity(notebook, vscode.NotebookControllerAffinity.Preferred);
+      }
+    })
+  );
+
+  vscode.workspace.notebookDocuments.forEach((notebook) => {
+    if (notebook.notebookType === NOTEBOOK_TYPE) {
+      controller.updateNotebookAffinity(notebook, vscode.NotebookControllerAffinity.Preferred);
+    }
+  });
+
   context.subscriptions.push(controller);
 }
 
